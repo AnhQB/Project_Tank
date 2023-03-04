@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Movie : MonoBehaviour
 {
-
+    public FixedJoystick joystick;
     public float move_speed;
     public float rotate_speed;
     public float aim_speed;
     Rigidbody2D r_body;
     public Transform shoot;
     public bool right, left, forward, back, turn;
+    public static bool PointerDown = false;
+  
+    Vector2 move;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +24,13 @@ public class Movie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        move.x = joystick.Horizontal;
+        move.y = joystick.Vertical;
+
+        float hAxis = move.x;
+        float VAxis = move.y;
+        float zAxis = Mathf.Atan2(hAxis, VAxis) * Mathf.Rad2Deg;
+        transform.eulerAngles = new Vector3(0f, 0f, -zAxis);
         //forward
         if (forward == true) 
         {
@@ -52,7 +62,19 @@ public class Movie : MonoBehaviour
 		}
 
 	}
-    public void Forward()
+	private void FixedUpdate()
+	{
+        if (PointerDown)
+        {
+            r_body.velocity = Vector3.zero;
+        }
+        else
+        {
+			r_body.MovePosition(r_body.position + move * move_speed * Time.fixedDeltaTime);
+		}
+        
+	}
+	public void Forward()
     {
         forward = true;
     }
