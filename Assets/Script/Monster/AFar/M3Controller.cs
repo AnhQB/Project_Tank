@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnNormalMonsterController : MonoBehaviour
+public class M3Controller : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,10 @@ public class SpawnNormalMonsterController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public static void Spawn()
+    {
+
     }
 }
