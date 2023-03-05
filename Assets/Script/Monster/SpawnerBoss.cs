@@ -31,7 +31,7 @@ public class SpawnerBoss : MonoBehaviour
         switch (enemyType)
         {
             case 1:
-                SpawnEnemy(bossPrefab, 5);
+                SpawnEnemy(bossPrefab, 1);
                 break;
             
         }
@@ -48,14 +48,6 @@ public class SpawnerBoss : MonoBehaviour
         if (timer.GetTotalSeconds() == 10)
         {
             positionSpawn = ScreenUtils.ScreenTop;
-        }
-        else if (timer.GetTotalSeconds() == 15)
-        {
-            positionSpawn = ScreenUtils.ScreenTop;
-        }
-        else
-        {
-
         }
 
         for (int i = 0; i <= amount; i++)
