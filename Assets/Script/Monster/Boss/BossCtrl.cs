@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class BossCtrl : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static BossCtrl instance;
+    public static BossCtrl Instance { get => instance; }
+
+    [SerializeField] protected Camera mainCamera;
+    public Camera MainCamera { get => mainCamera; }
+
+    protected virtual void Awake()
     {
         
+        if (BossCtrl.instance != null) Debug.LogError("Only 1 Gamemanager allow ");
+        BossCtrl.instance = this;
+    }
+    protected virtual void LoadComponents()
+    {
+        
+        this.LoadCamera();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void LoadCamera()
     {
-        
+        if (this.mainCamera != null) return;
+        this.mainCamera = BossCtrl.FindObjectOfType<Camera>();
+        Debug.Log(transform.name + "LoadCamera", gameObject);
     }
 }

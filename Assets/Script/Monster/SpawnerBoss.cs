@@ -50,10 +50,19 @@ public class SpawnerBoss : MonoBehaviour
             positionSpawn = ScreenUtils.ScreenTop;
         }
 
+        else if (timer.GetTotalSeconds() == 15)
+        {
+            positionSpawn = ScreenUtils.ScreenTop;
+        }
+        else
+        {
+
+        }
+
+
         for (int i = 0; i <= amount; i++)
         {
-            /* float mapTopY = 5f; 
-             float randomY = Random.Range(-mapTopY, mapTopY);*/
+            
             float randomY = UnityEngine.Random.Range(-ScreenUtils.ScreenTop, 0f);
             GameObject newPrefab = Instantiate(prefabToSpawn, new Vector3(ScreenUtils.ScreenLeft - startX + i * gap, randomY, 0f), Quaternion.identity);
         }
