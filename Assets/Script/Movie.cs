@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Movie : MonoBehaviour
 {
@@ -24,6 +25,13 @@ public class Movie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if(Input.GetMouseButton(0) && EventSystem.current.currentSelectedGameObject == null)
+        //{
+        //    Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - gameObject.transform.GetChild(0).transform.position;
+        //    pos.Normalize();
+        //    float z = Mathf.Atan2(pos.x, pos.y)*Mathf.Rad2Deg;
+        //    gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, -z));
+        //}
         move.x = joystick.Horizontal;
         move.y = joystick.Vertical;
 

@@ -10,9 +10,10 @@ public class GameManager : MonoBehaviour
     public GameObject PauseBtn, ExitBtn, ContinueBtn, PlayGameBtn;
     bool CheckClickGPlay;
     float k, x, y, z;
+    public GameObject bullet;
     void Start()
     {
-        k = 1.5f;
+        k = 2.5f;
         x = PauseBtn.transform.position.y;
         y = ContinueBtn.transform.position.y;
         z = ExitBtn.transform.position.y;
@@ -62,5 +63,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+    public void InsBullet()
+    {
+        GameObject bl = Instantiate(bullet) as GameObject;
+        bl.transform.position = GameObject.Find("tankGreen").transform.position;
+        bl.transform.rotation = GameObject.Find("tankGreen").transform.rotation;
     }
 }
