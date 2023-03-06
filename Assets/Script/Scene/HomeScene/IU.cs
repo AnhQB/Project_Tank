@@ -41,7 +41,7 @@ public class IU : MonoBehaviour
     }
     public void LoadScene()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("move");
     }
     public void LoadScore()
     {
