@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - TankBody
+  - Cave1
+  - Cave2
+  - Cave3
+  - Cave4
+  - CaveStart
+  - Bullet1
   layers:
   - Default
   - TransparentFX
@@ -13,9 +20,9 @@ TagManager:
   - UI
   - tank
   - bullettank
+  - Cave
   - 
-  - 
-  - 
+  - Monster
   - 
   - 
   - 

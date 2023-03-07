@@ -20,6 +20,20 @@ public class SpawnNormalMonsterController : MonoBehaviour
     private float m5Timer = 0f;
     private float m6Timer = 0f;
 
+    private GameObject positionCave1;
+    private GameObject positionCave2;
+    private GameObject positionCave3;
+    private GameObject positionCave4;
+    private GameObject positionCaveStart;
+    private void Awake()
+    {
+        positionCave1 = GameObject.FindWithTag("Cave1");
+        positionCave2 = GameObject.FindWithTag("Cave2");
+        positionCave3 = GameObject.FindWithTag("Cave3");
+        positionCave4 = GameObject.FindWithTag("Cave4");
+        positionCaveStart = GameObject.FindWithTag("CaveStart");
+    }
+
     private void Update()
     {
         m1Timer += Time.deltaTime;
@@ -101,27 +115,44 @@ public class SpawnNormalMonsterController : MonoBehaviour
         float startX = -prefabSize;
         float gap = prefabSize;
         Timer timer = Timer.GetInstance();
-
-        float positionSpawn;
-        if (timer.GetTotalSeconds() == 10)
+        float positionSpawnX = 0f;
+        float positionSpawnY = 0f;
+        //Debug.Log("Time : " + timer.GetTotalSeconds());
+        if (timer.GetTotalSeconds() <= 10)
         {
-            positionSpawn = ScreenUtils.ScreenTop;
-        }
-        else if(timer.GetTotalSeconds() == 15)
-        {
-            positionSpawn = ScreenUtils.ScreenTop;
+            positionSpawnX = positionCaveStart.transform.position.x;
+            positionSpawnY = UnityEngine.Random.Range(positionCaveStart.transform.position.y, 0f);
         }
         else
         {
-
+            if (UnityEngine.Random.value <= 0.2f)
+            {
+                positionSpawnX = positionCave1.transform.position.x;
+                positionSpawnY = UnityEngine.Random.Range(positionCave1.transform.position.y, 0f);
+            }
+            if (UnityEngine.Random.value <= 0.5f)
+            {
+                positionSpawnX = positionCave2.transform.position.x;
+                positionSpawnY = UnityEngine.Random.Range(positionCave2.transform.position.y, 0f);
+            }
+            if (UnityEngine.Random.value <= 0.7f)
+            {
+                positionSpawnX = positionCave3.transform.position.x;
+                positionSpawnY = UnityEngine.Random.Range(positionCave3.transform.position.y, 0f);
+            }
+            if (UnityEngine.Random.value <= 1f)
+            {
+                positionSpawnX = positionCave4.transform.position.x;
+                positionSpawnY = UnityEngine.Random.Range(positionCave4.transform.position.y, 0f);
+            }
         }
 
         for (int i = 0; i <= amount; i++)
         {
            /* float mapTopY = 5f; 
             float randomY = Random.Range(-mapTopY, mapTopY);*/
-            float randomY = UnityEngine.Random.Range(-ScreenUtils.ScreenTop, 0f);
-            GameObject newPrefab = Instantiate(prefabToSpawn, new Vector3(ScreenUtils.ScreenLeft - startX + i * gap, randomY, 0f), Quaternion.identity);
+            GameObject newPrefab = Instantiate(prefabToSpawn, 
+                new Vector3(positionSpawnX - startX + i * gap, positionSpawnY, 0f), Quaternion.identity);
         }
     }
 }
