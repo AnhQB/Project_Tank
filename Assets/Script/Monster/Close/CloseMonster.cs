@@ -37,8 +37,7 @@ namespace Assets.Script.Monster.Close
 
         public void Destroy(GameObject monster)
         {
-            //Instantiate<GameObject>(prefabExplosion, transform.position, Quaternion.identity);
-            Destroy(monster);
+            Instantiate<GameObject>(prefabExplosion, monster.transform.position, Quaternion.identity);
         }
     }
 }

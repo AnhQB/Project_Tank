@@ -21,7 +21,11 @@ public class M1Controller : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        CloseMonster.GetInstance().Destroy(gameObject);
+        if (collision.gameObject.tag.Contains("Bullet"))
+        {
+            Destroy(gameObject);
+            CloseMonster.GetInstance().Destroy(gameObject);
+        }
     }
 
 }

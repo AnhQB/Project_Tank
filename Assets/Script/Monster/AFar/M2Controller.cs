@@ -27,16 +27,23 @@ public class M2Controller : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet1"))
+        if (collision.gameObject.tag.Contains("Bullet"))
         {
-            HP--;
-            if(HP <= 0) {
+            if (collision.gameObject.CompareTag("Bullet1"))
+            {
+                HP--;
+                if (HP <= 0)
+                {
+                    CloseMonster.GetInstance().Destroy(gameObject);
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
                 CloseMonster.GetInstance().Destroy(gameObject);
+                Destroy(gameObject);
             }
         }
-        else
-        {
-            CloseMonster.GetInstance().Destroy(gameObject);
-        }
+            
     }
 }

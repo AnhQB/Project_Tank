@@ -1,3 +1,4 @@
+using Assets.Script.Monster.AFar;
 using Assets.Script.Monster.Close;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,26 +23,32 @@ public class M3Controller : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet1"))
+        if (collision.gameObject.tag.Contains("Bullet"))
         {
-            HP --;
-            if (HP <= 0)
+            FarMonster.GetInstance().Destroy(gameObject);
+            if (collision.gameObject.CompareTag("Bullet1"))
             {
-                CloseMonster.GetInstance().Destroy(gameObject);
+                HP--;
+                if (HP <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+            else if (collision.gameObject.CompareTag("Bullet2"))
+            {
+                HP -= 2f;
+                if (HP <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
-        else if (collision.gameObject.CompareTag("Bullet2"))
-        {
-            HP -= 2f;
-            if (HP <= 0)
-            {
-                CloseMonster.GetInstance().Destroy(gameObject);
-            }
-        }
-        else
-        {
-            CloseMonster.GetInstance().Destroy(gameObject);
-        }
+
+            
     }
 
 }
