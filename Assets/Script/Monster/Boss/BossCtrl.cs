@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class BossCtrl : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    [SerializeField] float speed = 3;
 
-    // Update is called once per frame
-    void Update()
+    Rigidbody2D rigidbody2D;
+    private void Awake()
     {
+        rigidbody2D= GetComponent<Rigidbody2D>();
+    }
+    private void Update()
+    {
+        GameObject targetPickup = GameObject.FindWithTag("TankBody");
+        transform.position = Vector3.MoveTowards(transform.position, targetPickup.transform.position, speed * Time.deltaTime);
         
     }
 }
