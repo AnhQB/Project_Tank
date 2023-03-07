@@ -13,6 +13,9 @@ public class Movie : MonoBehaviour
     public Transform shoot;
     public bool right, left, forward, back, turn;
     public static bool PointerDown = false;
+    public float Current_Health;
+    public float Max_Health;
+
   
     Vector2 move;
     // Start is called before the first frame update
