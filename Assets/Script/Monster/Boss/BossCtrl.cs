@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BossCtrl : MonoBehaviour
 {
-    
-    [SerializeField] float speed = 3;
+    [SerializeField] float hp = 100f;
+    [SerializeField] float speed = 5f;
 
     Rigidbody2D rigidbody2D;
     private void Awake()
@@ -14,8 +14,26 @@ public class BossCtrl : MonoBehaviour
     }
     private void Update()
     {
+        this.Move();
+        
+    }
+
+    protected virtual void Move()
+    {
         GameObject targetPickup = GameObject.FindWithTag("TankBody");
         transform.position = Vector3.MoveTowards(transform.position, targetPickup.transform.position, speed * Time.deltaTime);
-        
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Contains("TankBody"))
+        {
+            Attack(); ;
+        }
+    }
+
+    private static void Attack()
+    {
+        Debug.Log("Attack");
     }
 }
