@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class M5Controller : MonoBehaviour
 {
+    public float hit;
     public float HP = 8f;
     public float speedM5 = 6f;
+    public HealthBarBehaviour healthBar;
     // Start is called before the first frame update
     void Start()
     {
-        
+        hit = HP;
+        healthBar.SetHealth(hit, HP);
     }
 
     // Update is called once per frame
@@ -32,32 +35,32 @@ public class M5Controller : MonoBehaviour
             CloseMonster.GetInstance().Destroy(gameObject);
             if (collision.gameObject.CompareTag("Bullet1"))
             {
-                HP -= 0.5f;
-                if (HP <= 0)
+                hit -= 0.5f;
+                if (hit <= 0)
                 {
                     Destroy(this.gameObject);
                 }
             }
             else if (collision.gameObject.CompareTag("Bullet2"))
             {
-                HP -= 1f;
-                if (HP <= 0)
+                hit -= 1f;
+                if (hit <= 0)
                 {
                     Destroy(this.gameObject);
                 }
             }
             else if (collision.gameObject.CompareTag("Bullet3"))
             {
-                HP -= 2f;
-                if (HP <= 0)
+                hit -= 2f;
+                if (hit <= 0)
                 {
                     Destroy(this.gameObject);
                 }
             }
             else if (collision.gameObject.CompareTag("Bullet4"))
             {
-                HP -= 4f;
-                if (HP <= 0)
+                hit -= 4f;
+                if (hit <= 0)
                 {
                     Destroy(this.gameObject);
                 }

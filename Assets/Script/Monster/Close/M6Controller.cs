@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class M6Controller : MonoBehaviour
 {
+    public float hit;
     public float HP = 6f;
     public float speedM6 = 7f;
+    public HealthBarBehaviour healthBar;
     // Start is called before the first frame update
     void Start()
     {
-        
+        hit = HP;
+        healthBar.SetHealth(hit, HP);
     }
 
     // Update is called once per frame

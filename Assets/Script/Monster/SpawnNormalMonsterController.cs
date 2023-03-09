@@ -118,13 +118,12 @@ public class SpawnNormalMonsterController : MonoBehaviour
         float positionSpawnX = 0f;
         float positionSpawnY = 0f;
         //Debug.Log("Time : " + timer.GetTotalSeconds());
-        if (timer.GetTotalSeconds() <= 10)
+        if (timer.GetTotalSeconds() <= 20)
         {
             positionSpawnX = positionCaveStart.transform.position.x;
             positionSpawnY = UnityEngine.Random.Range(positionCaveStart.transform.position.y, 0f);
-        }
-        else
-        {
+        } else if (timer.GetTotalSeconds() >= 10) {
+       
             if (UnityEngine.Random.value <= 0.2f)
             {
                 positionSpawnX = positionCave1.transform.position.x;
@@ -145,8 +144,8 @@ public class SpawnNormalMonsterController : MonoBehaviour
                 positionSpawnX = positionCave4.transform.position.x;
                 positionSpawnY = UnityEngine.Random.Range(positionCave4.transform.position.y, 0f);
             }
+            
         }
-
         for (int i = 0; i <= amount; i++)
         {
            /* float mapTopY = 5f; 

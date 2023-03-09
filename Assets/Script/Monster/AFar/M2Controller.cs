@@ -6,11 +6,14 @@ using UnityEngine;
 public class M2Controller : MonoBehaviour
 {
     float speedM2 = 5f;
+    float hit;
     float HP = 2f;
+    public HealthBarBehaviour healthBar;
     // Start is called before the first frame update
     void Start()
     {
-        
+        hit = HP;
+        healthBar.SetHealth(hit, HP);
     }
 
     // Update is called once per frame
@@ -31,8 +34,8 @@ public class M2Controller : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Bullet1"))
             {
-                HP--;
-                if (HP <= 0)
+                hit--;
+                if (hit <= 0)
                 {
                     CloseMonster.GetInstance().Destroy(gameObject);
                     Destroy(gameObject);
@@ -44,6 +47,6 @@ public class M2Controller : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-            
+        healthBar.SetHealth(hit, HP);
     }
 }
