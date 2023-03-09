@@ -6,6 +6,7 @@ public class BossCtrl : MonoBehaviour
 {
     [SerializeField] float hp = 100f;
     [SerializeField] float speed = 5f;
+    [SerializeField] int damage = 10;
 
     Rigidbody2D rigidbody2D;
     private void Awake()
