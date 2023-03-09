@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossCtrl : MonoBehaviour
 {
     [SerializeField] float hp = 100f;
-    [SerializeField] float speed = 5f;
+    public float speed = 5f;
+    public float speedShoot = 2f;
     [SerializeField] int damage = 10;
 
     Rigidbody2D rigidbody2D;
@@ -29,7 +31,15 @@ public class BossCtrl : MonoBehaviour
     {
         if (collision.gameObject.tag.Contains("TankBody"))
         {
-            Attack(); ;
+            Attack(); 
+        }
+        if (collision.gameObject.CompareTag("Bullet1"))
+        {
+            hp -= 10f;
+            if(hp <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -37,4 +47,6 @@ public class BossCtrl : MonoBehaviour
     {
         Debug.Log("Attack");
     }
+
+    
 }
