@@ -29,31 +29,36 @@ public class M3Controller : MonoBehaviour
     {
         if (collision.gameObject.tag.Contains("Bullet"))
         {
-            FarMonster.GetInstance().Destroy(gameObject);
+            
             if (collision.gameObject.CompareTag("Bullet1"))
             {
                 hit--;
+                healthBar.SetHealth(hit, HP);
                 if (hit <= 0)
                 {
-                    Destroy(gameObject);
+                    DestroyExplode();
                 }
             }
             else if (collision.gameObject.CompareTag("Bullet2"))
             {
                 hit -= 2f;
+                healthBar.SetHealth(hit, HP);
                 if (hit <= 0)
                 {
-                    Destroy(gameObject);
+                    DestroyExplode();
                 }
             }
             else
             {
-                Destroy(gameObject);
+                DestroyExplode();
             }
         }
+    }
 
-        healthBar.SetHealth(hit, HP);
-
+    private void DestroyExplode()
+    {
+        Destroy(gameObject);
+        FarMonster.GetInstance().Destroy(gameObject);
     }
 
 }

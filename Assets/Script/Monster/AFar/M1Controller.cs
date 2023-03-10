@@ -1,3 +1,4 @@
+using Assets.Script.Monster.AFar;
 using Assets.Script.Monster.Close;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,16 +17,21 @@ public class M1Controller : MonoBehaviour
     void Update()
     {
         float speed = speedM1 * Time.deltaTime;
-        CloseMonster.GetInstance().Move(speed, this.gameObject);
+        FarMonster.GetInstance().Move(speed, this.gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Contains("Bullet"))
         {
-            Destroy(gameObject);
-            CloseMonster.GetInstance().Destroy(gameObject);
+            DestroyExplode();
         }
+    }
+
+    private void DestroyExplode()
+    {
+        Destroy(gameObject);
+        FarMonster.GetInstance().Destroy(gameObject);
     }
 
 }

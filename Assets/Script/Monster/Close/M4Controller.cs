@@ -33,38 +33,45 @@ public class M4Controller : MonoBehaviour
     {
         if (collision.gameObject.tag.Contains("Bullet"))
         {
-            CloseMonster.GetInstance().Destroy(gameObject);
+            
             if (collision.gameObject.CompareTag("Bullet1"))
             {
                 hit -= 0.75f;
+                healthBar.SetHealth(hit, HP);
                 if (hit <= 0)
                 {
-                    Destroy(gameObject);
+                    DestroyExplode();
                 }
             }
             else if (collision.gameObject.CompareTag("Bullet2"))
             {
                 hit -= 1.5f;
+                healthBar.SetHealth(hit, HP);
                 if (hit <= 0)
                 {
-                    Destroy(gameObject);
+                    DestroyExplode();
                 }
             }
             else if (collision.gameObject.CompareTag("Bullet3"))
             {
                 hit -= 3f;
+                healthBar.SetHealth(hit, HP);
                 if (hit <= 0)
                 {
-                    Destroy(gameObject);
+                    DestroyExplode();
                 }
             }
             else
             {
 
-                Destroy(gameObject);
+                DestroyExplode();
             }
         }
+    }
 
-           
+    private void DestroyExplode()
+    {
+        Destroy(gameObject);
+        CloseMonster.GetInstance().Destroy(gameObject);
     }
 }

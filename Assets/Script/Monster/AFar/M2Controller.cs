@@ -1,3 +1,4 @@
+using Assets.Script.Monster.AFar;
 using Assets.Script.Monster.Close;
 using System.Collections;
 using System.Collections.Generic;
@@ -35,18 +36,23 @@ public class M2Controller : MonoBehaviour
             if (collision.gameObject.CompareTag("Bullet1"))
             {
                 hit--;
+                healthBar.SetHealth(hit, HP);
                 if (hit <= 0)
                 {
-                    CloseMonster.GetInstance().Destroy(gameObject);
-                    Destroy(gameObject);
+                    DestroyExplode();
                 }
             }
             else
             {
-                CloseMonster.GetInstance().Destroy(gameObject);
-                Destroy(gameObject);
+                DestroyExplode();
             }
         }
         healthBar.SetHealth(hit, HP);
+    }
+
+    private void DestroyExplode()
+    {
+        Destroy(gameObject);
+        FarMonster.GetInstance().Destroy(gameObject);
     }
 }
