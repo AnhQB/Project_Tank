@@ -1,3 +1,4 @@
+using Assets.Script.Monster.AFar;
 using Assets.Script.Monster.Close;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,16 +25,10 @@ public class M4Controller : MonoBehaviour
         CloseMonster.GetInstance().Move(speed, this.gameObject);
     }
 
-    public static void Spawn()
-    {
-
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Contains("Bullet"))
         {
-            
             if (collision.gameObject.CompareTag("Bullet1"))
             {
                 hit -= 0.75f;
@@ -63,15 +58,14 @@ public class M4Controller : MonoBehaviour
             }
             else
             {
-
                 DestroyExplode();
             }
-        }
+        }   
     }
 
     private void DestroyExplode()
     {
-        Destroy(gameObject);
         CloseMonster.GetInstance().Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

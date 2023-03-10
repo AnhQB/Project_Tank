@@ -24,14 +24,9 @@ public class M1Controller : MonoBehaviour
     {
         if (collision.gameObject.tag.Contains("Bullet"))
         {
-            DestroyExplode();
+            FarMonster.GetInstance().Destroy(gameObject);
+            Destroy(gameObject);
         }
-    }
-
-    private void DestroyExplode()
-    {
-        Destroy(gameObject);
-        FarMonster.GetInstance().Destroy(gameObject);
     }
 
 }

@@ -72,14 +72,12 @@ public class M5Controller : MonoBehaviour
             {
                 DestroyExplode();
             }
-        }
-
-         
+        } 
     }
 
     private void DestroyExplode()
     {
-        Destroy(gameObject);
         CloseMonster.GetInstance().Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

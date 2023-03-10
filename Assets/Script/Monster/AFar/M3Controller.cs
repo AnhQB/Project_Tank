@@ -22,14 +22,13 @@ public class M3Controller : MonoBehaviour
     void Update()
     {
         float speed = speedM3 * Time.deltaTime;
-        CloseMonster.GetInstance().Move(speed, this.gameObject);
+        FarMonster.GetInstance().Move(speed, this.gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Contains("Bullet"))
         {
-            
             if (collision.gameObject.CompareTag("Bullet1"))
             {
                 hit--;
@@ -53,12 +52,13 @@ public class M3Controller : MonoBehaviour
                 DestroyExplode();
             }
         }
+
     }
 
     private void DestroyExplode()
     {
-        Destroy(gameObject);
         FarMonster.GetInstance().Destroy(gameObject);
+        Destroy(gameObject);
     }
 
 }

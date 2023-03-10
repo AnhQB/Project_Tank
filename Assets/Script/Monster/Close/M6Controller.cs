@@ -32,10 +32,4 @@ public class M6Controller : MonoBehaviour
     {
         
     }
-
-    private void DestroyExplode()
-    {
-        Destroy(gameObject);
-        CloseMonster.GetInstance().Destroy(gameObject);
-    }
 }

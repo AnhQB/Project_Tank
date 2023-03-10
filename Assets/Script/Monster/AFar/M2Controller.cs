@@ -21,7 +21,7 @@ public class M2Controller : MonoBehaviour
     void Update()
     {
         float speed = speedM2 * Time.deltaTime;
-        CloseMonster.GetInstance().Move(speed, this.gameObject);
+        FarMonster.GetInstance().Move(speed, this.gameObject);
     }
 
     public static void Spawn()
@@ -47,12 +47,11 @@ public class M2Controller : MonoBehaviour
                 DestroyExplode();
             }
         }
-        healthBar.SetHealth(hit, HP);
     }
 
     private void DestroyExplode()
     {
-        Destroy(gameObject);
         FarMonster.GetInstance().Destroy(gameObject);
+        Destroy(gameObject);
     }
 }
