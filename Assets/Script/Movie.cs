@@ -1,3 +1,4 @@
+using Assets.Script.Monster.Close;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,8 +15,8 @@ public class Movie : MonoBehaviour
     public bool right, left, forward, back, turn;
     public static bool PointerDown = false;
     public float Current_Health;
-    public float Max_Health;
-
+    public float Max_Health = 10;
+    
   
     Vector2 move;
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public class Movie : MonoBehaviour
     {
         r_body =  GetComponent<Rigidbody2D>();
         transform.rotation = shoot.rotation;
+        
     }
 
     // Update is called once per frame
@@ -126,4 +128,5 @@ public class Movie : MonoBehaviour
     {
         turn = false;
     }
+   
 }
