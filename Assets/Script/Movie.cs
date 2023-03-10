@@ -15,12 +15,14 @@ public class Movie : MonoBehaviour
     public static bool PointerDown = false;
     public float Current_Health;
     public float Max_Health;
+    public float speedFlash;
 
-  
+
     Vector2 move;
     // Start is called before the first frame update
     void Start()
     {
+        speedFlash = 1f;
         r_body =  GetComponent<Rigidbody2D>();
         transform.rotation = shoot.rotation;
     }
@@ -28,6 +30,7 @@ public class Movie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         //if(Input.GetMouseButton(0) && EventSystem.current.currentSelectedGameObject == null)
         //{
         //    Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - gameObject.transform.GetChild(0).transform.position;
@@ -54,7 +57,7 @@ public class Movie : MonoBehaviour
         //back
 		if (back == true)
 		{
-			r_body.velocity = transform.up * -move_speed;
+			r_body.velocity = transform.up * -move_speed ;
 		}
         //right
 		if (right == true)
@@ -73,15 +76,25 @@ public class Movie : MonoBehaviour
 		}
 
 	}
+    public void TangToc()
+    {
+        speedFlash = 3f;
+
+
+    }    
 	private void FixedUpdate()
 	{
+        if(speedFlash>1)
+        {
+            speedFlash -= Time.deltaTime;
+        }  
         if (PointerDown)
         {
             r_body.velocity = Vector3.zero;
         }
         else
         {
-			r_body.MovePosition(r_body.position + move * move_speed * Time.fixedDeltaTime);
+			r_body.MovePosition(r_body.position + move * move_speed*speedFlash * Time.fixedDeltaTime);
 		}
         
 	}

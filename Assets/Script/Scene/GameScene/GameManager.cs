@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,8 +12,13 @@ public class GameManager : MonoBehaviour
     bool CheckClickGPlay;
     float k, x, y, z;
     public GameObject bullet;
+    float timeP, timeS;
+    public TextMeshProUGUI TextTime;
     void Start()
     {
+        timeP = 15;
+        timeS = 0;
+        TextTime.text = (int)timeP + ":" + (int)timeS;
         k = 2.5f;
         x = PauseBtn.transform.position.y;
         y = ContinueBtn.transform.position.y;
@@ -69,5 +75,16 @@ public class GameManager : MonoBehaviour
         GameObject bl = Instantiate(bullet) as GameObject;
         bl.transform.position = GameObject.Find("tankGreen").transform.position;
         bl.transform.rotation = GameObject.Find("tankGreen").transform.rotation;
+    }
+    private void FixedUpdate()
+    {
+        timeS -= Time.deltaTime;
+        if(timeS<=0)
+        {
+            timeS = 60;
+            timeP--;
+        }
+        TextTime.text = (int)timeP + ":" + (int)timeS;
+
     }
 }
