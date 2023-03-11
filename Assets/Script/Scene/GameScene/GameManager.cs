@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI TextTime;
     void Start()
     {
-        timeP = 15;
+        timeP = 0;
         timeS = 0;
         TextTime.text = (int)timeP + ":" + (int)timeS;
         k = 2.5f;
@@ -92,11 +92,11 @@ public class GameManager : MonoBehaviour
 	}
 	private void FixedUpdate()
     {
-        timeS -= Time.deltaTime;
-        if(timeS<=0)
+        timeS += Time.deltaTime;
+        if(timeS>=60 && timeP <15)
         {
-            timeS = 60;
-            timeP--;
+            timeS = 0;
+            timeP++;
         }
         TextTime.text = (int)timeP + ":" + (int)timeS;
 
