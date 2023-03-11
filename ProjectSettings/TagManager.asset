@@ -13,6 +13,13 @@ TagManager:
   - Bullet1
   - Rocket
   - bomm
+  - M1
+  - M2
+  - M3
+  - M4
+  - M5
+  - M6
+  - BOSS
   layers:
   - Default
   - TransparentFX
