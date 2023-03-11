@@ -12,6 +12,7 @@ TagManager:
   - CaveStart
   - Bullet1
   - Rocket
+  - bomm
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     float k, x, y, z;
     public GameObject bullet;
     public GameObject rocket;
+    public GameObject bomm;
     float timeP, timeS;
     public TextMeshProUGUI TextTime;
     void Start()
@@ -83,7 +84,13 @@ public class GameManager : MonoBehaviour
 		rc.transform.position = GameObject.Find("tankGreen").transform.position;
 		rc.transform.rotation = GameObject.Find("tankGreen").transform.rotation;
 	}
-    private void FixedUpdate()
+	public void InsBomm()
+	{
+		GameObject bo = Instantiate(bomm) as GameObject;
+		bo.transform.position = GameObject.Find("tankGreen").transform.position;
+		bo.transform.rotation = GameObject.Find("tankGreen").transform.rotation;
+	}
+	private void FixedUpdate()
     {
         timeS -= Time.deltaTime;
         if(timeS<=0)
