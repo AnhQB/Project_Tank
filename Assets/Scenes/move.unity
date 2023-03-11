@@ -1148,6 +1148,26 @@ PrefabInstance:
       propertyPath: m_TagString
       value: TankBody
       objectReference: {fileID: 0}
+    - target: {fileID: 7246752388140878288, guid: 8fb80352d7150f240af022d4879a4657, type: 3}
+      propertyPath: m_Size.x
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246752388140878288, guid: 8fb80352d7150f240af022d4879a4657, type: 3}
+      propertyPath: m_Size.y
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246752388140878288, guid: 8fb80352d7150f240af022d4879a4657, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7f370c15cf32e2642a9df4afd728530a, type: 3}
+    - target: {fileID: 7246752388140878288, guid: 8fb80352d7150f240af022d4879a4657, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246752388140878288, guid: 8fb80352d7150f240af022d4879a4657, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7246752388140878292, guid: 8fb80352d7150f240af022d4879a4657, type: 3}
       propertyPath: joystick
       value: 
@@ -3016,7 +3036,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1508026289}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1801348300}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: InsBomm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1508026289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3356,6 +3388,7 @@ MonoBehaviour:
   PlayGameBtn: {fileID: 1061990953}
   bullet: {fileID: 4852425373741617514, guid: 30d480c7bdb3b4f469259629239e3f28, type: 3}
   rocket: {fileID: 1268406729792800836, guid: 204659dbd02b73f4684898b730bd84f3, type: 3}
+  bomm: {fileID: 4617404944323124817, guid: 5c27400f85f120a4ead83311685e5cfc, type: 3}
   TextTime: {fileID: 1381336610}
 --- !u!4 &1801348301
 Transform:
