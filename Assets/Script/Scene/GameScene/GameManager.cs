@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     bool CheckClickGPlay;
     float k, x, y, z;
     public GameObject bullet;
+    public GameObject rocket;
     float timeP, timeS;
     public TextMeshProUGUI TextTime;
     void Start()
@@ -76,6 +77,12 @@ public class GameManager : MonoBehaviour
         bl.transform.position = GameObject.Find("tankGreen").transform.position;
         bl.transform.rotation = GameObject.Find("tankGreen").transform.rotation;
     }
+    public void InsRocket()
+    {
+		GameObject rc = Instantiate(rocket) as GameObject;
+		rc.transform.position = GameObject.Find("tankGreen").transform.position;
+		rc.transform.rotation = GameObject.Find("tankGreen").transform.rotation;
+	}
     private void FixedUpdate()
     {
         timeS -= Time.deltaTime;
