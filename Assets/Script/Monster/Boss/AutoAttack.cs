@@ -15,7 +15,7 @@ public class AutoAttack : MonoBehaviour
         
 
         bossCtrl = GetComponent<BossCtrl>();
-        fireInterval = bossCtrl.speedShoot;
+        fireInterval = bossCtrl.speedboss;
 
     }
     void Update()
@@ -69,10 +69,10 @@ public class AutoAttack : MonoBehaviour
     void Fire()
     {
         
-        GameObject arrow = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
 
-        
-        arrow.GetComponent<Rigidbody2D>().AddForce(transform.right * 1500f);
+
+        bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * 1500f);
         
     }
 }
