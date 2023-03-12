@@ -46,9 +46,20 @@ public class M3Controller : MonoBehaviour
             }
 
         }
-       
+		if (collision.gameObject.tag.Contains("Rocket"))
+		{
+			float st = collision.gameObject.GetComponent<bullet>().Damage;
+			hit -= st;
+			healthBar.SetHealth(hit, HP);
+			if (hit <= 0)
+			{
+				DestroyExplode();
+			}
 
-    }
+		}
+
+
+	}
 
 
     private void DestroyExplode()
