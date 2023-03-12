@@ -58,6 +58,17 @@ public class M5Controller : MonoBehaviour
 			}
 
 		}
+		if (collision.gameObject.tag.Contains("bomm"))
+		{
+			float st = collision.gameObject.GetComponent<bullet>().Damage;
+			hit -= st;
+			healthBar.SetHealth(hit, HP);
+			if (hit <= 0)
+			{
+				DestroyExplode();
+			}
+
+		}
 
 	}
 
