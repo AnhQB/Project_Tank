@@ -64,9 +64,9 @@ public class TankController : MonoBehaviour
                 {
                     Movie.GetInstance().Current_Health -= DameMonster.GetDameMonsterByType((int)MonsterTag.M3, expLevel);
                 }
-                else //if (collisionObj.CompareTag(BulletMonsterTag.BulletBOSS.ToString()))
+                else if (collisionObj.CompareTag(BulletMonsterTag.BulletBOSS.ToString()))
                 {
-                       //Movie.GetInstance().Current_Health -= DameMonster.GetDameMonsterByType((int)MonsterTag.BOSS, expLevel);
+                       Movie.GetInstance().Current_Health -= DameMonster.GetDameMonsterByType((int)MonsterTag.BOSS, expLevel);
                 }
 
                 break;
@@ -103,7 +103,8 @@ public class TankController : MonoBehaviour
                 }
                 else if (collisionObj.CompareTag(MonsterTag.BOSS.ToString()))
                 {
-                    //Movie.GetInstance().Current_Health -= DameMonster.GetDameMonsterByType((int)MonsterTag.BOSS, expLevel);
+                    Movie.GetInstance().Current_Health -= DameMonster.GetDameMonsterByType((int)MonsterTag.BOSS, expLevel);
+                    healthBar.SetHealth(Movie.GetInstance().Current_Health, Movie.GetInstance().Max_Health);
                 }
                 break;
        }
