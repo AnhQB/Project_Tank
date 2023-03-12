@@ -8,16 +8,13 @@ using UnityEngine;
 public class M1Controller : MonoBehaviour
 {
     float speedM1 = 4f;
+    public float speedShooting = 2f;
     public GameObject item;
-
     float valueitem;
-    
     // Start is called before the first frame update
     void Start()
     {
-      
         valueitem = Random.Range(0, 100);
-
     }
 
     // Update is called once per frame
