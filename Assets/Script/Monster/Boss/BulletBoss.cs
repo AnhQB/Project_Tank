@@ -13,7 +13,7 @@ public class BulletBoss : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0.3f;
-        Destroy(gameObject, 3);
+        Destroy(gameObject, 3f);
     }
 
     private void Update()
@@ -34,6 +34,7 @@ public class BulletBoss : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
+        Destroy(gameObject);
     }
 }

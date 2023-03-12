@@ -7,6 +7,7 @@ using UnityEngine;
 public class M1Controller : MonoBehaviour
 {
     float speedM1 = 4f;
+    public float speedShooting = 2f;
     // Start is called before the first frame update
     void Start()
     {
