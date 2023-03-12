@@ -11,6 +11,7 @@ public class M1Controller : MonoBehaviour
     public float speedShooting = 2f;
     public GameObject item;
     float valueitem;
+    
     // Start is called before the first frame update
     void Start()
     {
