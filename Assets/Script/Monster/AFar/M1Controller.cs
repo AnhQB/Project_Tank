@@ -36,6 +36,10 @@ public class M1Controller : MonoBehaviour
 		{
 			DestroyExplode();
 		}
+		if (collision.gameObject.tag.Contains("bomm"))
+		{
+			DestroyExplode();
+		}
 	}
 
 
