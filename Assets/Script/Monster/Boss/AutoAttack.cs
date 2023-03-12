@@ -59,7 +59,7 @@ public class AutoAttack : MonoBehaviour
             {
                 closestEnemy = enemy;
                 closestDistance = distance;
-                Debug.Log(enemy.transform.position.x + "," + enemy.transform.position.y);
+               // Debug.Log(enemy.transform.position.x + "," + enemy.transform.position.y);
             }
         }
 

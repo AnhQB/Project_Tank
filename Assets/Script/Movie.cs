@@ -18,7 +18,7 @@ public class Movie : MonoBehaviour
     public float speedFlash;
     public float exp = 0;
 
-    private static Movie instance;
+    public static Movie instance;
 
     Vector2 move;
 

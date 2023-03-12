@@ -113,7 +113,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.50416094, b: 0.0047169924, a: 1}
   m_FlipX: 0
@@ -188,6 +188,7 @@ MonoBehaviour:
   HP: 3
   speedM3: 5
   healthBar: {fileID: 1650217062639816049}
+  item: {fileID: 8016195924897956349, guid: d470b707f5fb61c4ea447e5c1ba0f7ae, type: 3}
 --- !u!1 &6349613837361827040
 GameObject:
   m_ObjectHideFlags: 0

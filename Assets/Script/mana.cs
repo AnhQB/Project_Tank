@@ -6,19 +6,19 @@ using UnityEngine.UI;
 public class mana : MonoBehaviour
 {
     // Start is called before the first frame update
-    
+    public static mana mn;
     public Slider manaTank;
     public Text manaText;
 
     public float myMana;
 
     private float curentLife;
-    private float curentMana;
+    public float curentMana;
     private float calculatelife;
 
 	void Start()
     {
-        
+        mana.mn = this;
     }
 
     // Update is called once per frame

@@ -12,6 +12,7 @@ public class IU : MonoBehaviour
     public Text textScore;
     void Start()
     {
+       
         checkScore = true;
         checkOpen = true;
     }
@@ -41,6 +42,7 @@ public class IU : MonoBehaviour
     }
     public void LoadScene()
     {
+        PlayerPrefs.SetInt("Damage", 0);
         SceneManager.LoadScene("move");
     }
     public void LoadScore()

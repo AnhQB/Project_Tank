@@ -473,7 +473,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2135585597343286014, guid: 5aa8b770bc43046bc8d993d0d5b7f4a5, type: 3}
   m_Color: {r: 1, g: 0.051886797, b: 0.50251764, a: 1}
   m_FlipX: 0
@@ -538,3 +538,4 @@ MonoBehaviour:
   HP: 5
   speedM5: 6
   healthBar: {fileID: 4404723293375310659}
+  item: {fileID: 8016195924897956349, guid: d470b707f5fb61c4ea447e5c1ba0f7ae, type: 3}
