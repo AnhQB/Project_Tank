@@ -11,13 +11,11 @@ public class M1Controller : MonoBehaviour
     public GameObject item;
 
     float valueitem;
-    
+    public float speedShooting = 2f;
     // Start is called before the first frame update
     void Start()
     {
-      
         valueitem = Random.Range(0, 100);
-
     }
 
     // Update is called once per frame
