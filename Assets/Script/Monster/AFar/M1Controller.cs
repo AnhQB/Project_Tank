@@ -7,12 +7,13 @@ using UnityEngine;
 
 public class M1Controller : MonoBehaviour
 {
+
     float speedM1 = 4f;
-   
+    public float speedShooting = 2f;
+    // Start is called before the first frame update
     public GameObject item;
     float valueitem;
     
-    // Start is called before the first frame update
     void Start()
     {
         valueitem = Random.Range(0, 100);
@@ -29,13 +30,8 @@ public class M1Controller : MonoBehaviour
     {
         if (collision.gameObject.tag.Contains("Bullet1"))
         {
-           
              DestroyExplode();
-            
-
         }
-      
-
     }
 
 
