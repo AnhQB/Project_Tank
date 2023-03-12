@@ -16,9 +16,29 @@ public class Movie : MonoBehaviour
     public float Current_Health;
     public float Max_Health;
     public float speedFlash;
+    public float exp = 0;
 
+    private static Movie instance;
 
     Vector2 move;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public static Movie GetInstance()
+    {
+        return instance;
+    }
     // Start is called before the first frame update
     void Start()
     {
