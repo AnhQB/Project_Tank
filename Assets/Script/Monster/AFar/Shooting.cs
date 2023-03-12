@@ -2,49 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutoAttack : MonoBehaviour
+public class Shooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public float fireInterval;
     public float detectionRange = 10000f;
     private float timer;
 
-    BossCtrl bossCtrl;
+    M1Controller m1Controller;
     private void Start()
     {
-        
 
-        bossCtrl = GetComponent<BossCtrl>();
-        fireInterval = bossCtrl.speedshooting;
+
+        m1Controller = GetComponent<M1Controller>();
+        fireInterval = m1Controller.speedShooting;
 
     }
     void Update()
     {
-        
+
         timer += Time.deltaTime;
 
-       
+
         if (timer >= fireInterval)
         {
-            
-            GameObject closestEnemy = FindClosestEnemy();
 
-           
+            GameObject closestEnemy = FindClosestTank();
+
+
             if (closestEnemy != null)
             {
                 Vector3 targetDirection = closestEnemy.transform.position - transform.position;
                 transform.right = targetDirection.normalized;
 
-                
+
                 Fire();
             }
 
-            
+
             timer = 0f;
         }
     }
 
-    GameObject FindClosestEnemy()
+    GameObject FindClosestTank()
     {
         // Find all enemies within range
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("TankBody");
@@ -68,11 +68,11 @@ public class AutoAttack : MonoBehaviour
 
     void Fire()
     {
-        
+
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
 
 
         bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * 1500f);
-        
+
     }
 }

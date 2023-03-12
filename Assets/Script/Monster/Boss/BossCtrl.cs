@@ -11,6 +11,7 @@ public class BossCtrl : MonoBehaviour
     public float hit;
     public float HP = 100f;
     public float speedboss = 5f;
+    public float speedshooting = 2f;
     public HealthBarBehaviour healthBar;
 
     // Start is called before the first frame update
