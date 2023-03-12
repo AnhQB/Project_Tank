@@ -108,7 +108,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 2e101bc372d816e48ac94ae1b89ec254, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_Size: {x: 0.84, y: 0.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &7246752388140878295
@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa654f9d77dceef48adfb93d8d221f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joystick: {fileID: 0}
   move_speed: 5
   rotate_speed: 100
   aim_speed: 100
@@ -188,6 +189,10 @@ MonoBehaviour:
   forward: 0
   back: 0
   turn: 0
+  Current_Health: 0
+  Max_Health: 0
+  speedFlash: 0
+  exp: 0
 --- !u!1 &7246752388397845003
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +294,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.14865394}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 1}
     oldSize: {x: 0.32, y: 0.6}
     newSize: {x: 0.32, y: 0.6}
     adaptiveTilingThreshold: 0.5

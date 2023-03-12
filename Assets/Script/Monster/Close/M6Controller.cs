@@ -1,3 +1,4 @@
+using Assets.Script.Monster.AFar;
 using Assets.Script.Monster.Close;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,9 +10,16 @@ public class M6Controller : MonoBehaviour
     public float HP = 6f;
     public float speedM6 = 7f;
     public HealthBarBehaviour healthBar;
+    public GameObject item;
+  
+    float valueitem;
+ 
+
     // Start is called before the first frame update
     void Start()
     {
+      
+        valueitem = Random.Range(0, 100);
         hit = HP;
         healthBar.SetHealth(hit, HP);
     }
@@ -30,6 +38,30 @@ public class M6Controller : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.tag.Contains("Bullet1"))
+        {
+            float st = collision.gameObject.GetComponent<bullet>().Damage;
+            hit -= st;
+            healthBar.SetHealth(hit, HP);
+            if (hit <= 0)
+            {
+                DestroyExplode();
+            }
+
+        }
+      
+
+    }
+
+
+    private void DestroyExplode()
+    {
+        FarMonster.GetInstance().Destroy(gameObject);
+        if (valueitem > 70)
+        {
+            GameObject iteInsm = Instantiate(item) as GameObject;
+            iteInsm.transform.position = gameObject.transform.position;
+        }
+        Destroy(gameObject);
     }
 }
