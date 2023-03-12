@@ -32,7 +32,11 @@ public class M1Controller : MonoBehaviour
         {
              DestroyExplode();
         }
-    }
+		if (collision.gameObject.tag.Contains("Rocket"))
+		{
+			DestroyExplode();
+		}
+	}
 
 
     private void DestroyExplode()
