@@ -52,6 +52,9 @@ public class M1Controller : MonoBehaviour
             iteInsm.transform.position = gameObject.transform.position;
         }
         Destroy(gameObject);
-    }
 
+		Movie.GetInstance().exp += 0.1f;
+	}
+
+	
 }

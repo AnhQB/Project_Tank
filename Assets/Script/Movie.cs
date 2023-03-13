@@ -16,9 +16,11 @@ public class Movie : MonoBehaviour
     public float Current_Health;
     public float Max_Health;
     public float speedFlash;
-    public float exp = 0;
+   
+	public float exp = 0;
+	public float maxExp = 10;
 
-    public static Movie instance;
+	public static Movie instance;
 
     Vector2 move;
 
