@@ -9,17 +9,27 @@ public class TankController : MonoBehaviour
 {
     public HealthBarBehaviourTank healthBar;
     // Start is called before the first frame update
+    public ExpBarController expBar;
 
     void Start()
     {
-        //healthBar.SetHealth(Movie.GetInstance().Max_Health, Movie.GetInstance().Max_Health);
-    }
+		//healthBar.SetHealth(Movie.GetInstance().Max_Health, Movie.GetInstance().Max_Health);
+		expBar.SetExp(0, Movie.GetInstance().maxExp);
+	}
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
+		if (Movie.GetInstance().maxExp - Movie.GetInstance().exp <= 0)
+		{
+			if (Movie.GetInstance().maxExp <= 5120f)
+			{
+				Movie.GetInstance().maxExp += 10f;
+			}
+
+		}
+		expBar.SetExp(Movie.GetInstance().exp, Movie.GetInstance().maxExp);
+	}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
