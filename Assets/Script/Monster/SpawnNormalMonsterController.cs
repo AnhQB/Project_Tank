@@ -94,16 +94,48 @@ public class SpawnNormalMonsterController : MonoBehaviour
                 SpawnEnemy(m4Prefab, 2);
                 break;
             case 5:
-                if (UnityEngine.Random.value <= 0.6f)
+                if (Movie.GetInstance().exp <= 320)
                 {
-                    SpawnEnemy(m5Prefab, 2);
+                    if (UnityEngine.Random.value <= 0.5f)
+                    {
+                        SpawnEnemy(m5Prefab, 2);
+                    }
+                }else if (Movie.GetInstance().exp <= 1280)
+                {
+                    if (UnityEngine.Random.value <= 0.6f)
+                    {
+                        SpawnEnemy(m5Prefab, 2);
+                    }
                 }
-                
+                else
+                {
+                    if (UnityEngine.Random.value <= 0.8f)
+                    {
+                        SpawnEnemy(m5Prefab, 2);
+                    }
+                }
                 break;
             case 6:
-                if (UnityEngine.Random.value <= 0.2f)
+                if (Movie.GetInstance().exp <= 320)
                 {
-                    SpawnEnemy(m6Prefab, 1);
+                    if (UnityEngine.Random.value <= 0.15f)
+                    {
+                        SpawnEnemy(m6Prefab, 1);
+                    }
+                }
+                else if (Movie.GetInstance().exp <= 1280)
+                {
+                    if (UnityEngine.Random.value <= 0.2f)
+                    {
+                        SpawnEnemy(m6Prefab, 1);
+                    }
+                }
+                else
+                {
+                    if (UnityEngine.Random.value <= 0.3f)
+                    {
+                        SpawnEnemy(m6Prefab, 1);
+                    }
                 }
                 break;
         }
