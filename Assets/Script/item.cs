@@ -59,7 +59,7 @@ public class item : MonoBehaviour
                 Destroy(gameObject);
 
             }
-            else if (setitem >45 && setitem<90)
+            else if (setitem >45 && setitem<95)
             {
                 mana.mn.curentMana += 5;
                 if(mana.mn.curentMana >mana.mn.myMana)
@@ -69,7 +69,7 @@ public class item : MonoBehaviour
                 Destroy(gameObject);
 
             }
-            else if (setitem >= 90 && PlayerPrefs.GetInt("Damage")<=3)
+            else if (setitem >= 95 && PlayerPrefs.GetInt("Damage")<=3)
             {
                 PlayerPrefs.SetInt("Damage", PlayerPrefs.GetInt("Damage") + 1);
                 Destroy(gameObject);
