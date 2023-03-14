@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpawnerBoss : MonoBehaviour
 {
     protected float timeSpawn = 0f;
-    protected float timeDlay = 10f;
+    protected float timeDlay = 300f;
     public GameObject bossPrefab;
     void Start()
     {

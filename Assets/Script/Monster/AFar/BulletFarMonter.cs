@@ -9,12 +9,12 @@ public class BulletFarMonter : MonoBehaviour
     public bool lateStartX;
     Rigidbody2D rb;
     FarMonster farMonster;
-    public int damage;
+   
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0.3f;
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 10f);
     }
 
     private void Update()
