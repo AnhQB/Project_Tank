@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 5901775014225249879}
   - component: {fileID: 5901775014225249878}
   - component: {fileID: -6687968506467923867}
+  - component: {fileID: 1269477250980530388}
   m_Layer: 10
   m_Name: M2
   m_TagString: M2
@@ -384,6 +385,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 7027357477665363826}
   item: {fileID: 8016195924897956349, guid: d470b707f5fb61c4ea447e5c1ba0f7ae, type: 3}
+--- !u!114 &1269477250980530388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901775014225249877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fdea39b092272a42b6f5f7821bf73ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 5529657776309676617, guid: 8d2752e7a6225d043b57f3c13f2801a2, type: 3}
+  fireInterval: 0
+  detectionRange: 10000
 --- !u!1 &7729448247415240204
 GameObject:
   m_ObjectHideFlags: 0
