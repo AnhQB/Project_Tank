@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,10 @@ using UnityEngine.UI;
 public class ExpBarController : MonoBehaviour
 {
 	public Slider slider;
+	public Text text;
 
 	private static ExpBarController instance;
+	
 	private void Awake()
 	{
 		if (instance == null)
@@ -45,5 +48,6 @@ public class ExpBarController : MonoBehaviour
 	public void Update()
 	{
 		slider.value = Movie.GetInstance().exp;
-	}
+		text.text = Math.Round(Movie.GetInstance().exp, 2).ToString();
+    }
 }

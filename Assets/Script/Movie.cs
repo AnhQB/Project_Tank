@@ -44,6 +44,7 @@ public class Movie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        maxExp = 10;
         speedFlash = 1f;
         r_body =  GetComponent<Rigidbody2D>();
         transform.rotation = shoot.rotation;

@@ -75,6 +75,17 @@ public class M5Controller : MonoBehaviour
 
     private void DestroyExplode()
     {
+        if(Movie.GetInstance().exp <= 320)
+        {
+            Movie.GetInstance().exp += 0.5f;
+        }else if(Movie.GetInstance().exp <= 1280)
+        {
+            Movie.GetInstance().exp += 1f;
+        }
+        else
+        {
+            Movie.GetInstance().exp = 3f;
+        }
         FarMonster.GetInstance().Destroy(gameObject);
         if (valueitem > 70)
         {

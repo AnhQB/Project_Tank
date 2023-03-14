@@ -77,6 +77,18 @@ public class M6Controller : MonoBehaviour
 
     private void DestroyExplode()
     {
+        if (Movie.GetInstance().exp <= 320)
+        {
+            Movie.GetInstance().exp += 1f;
+        }
+        else if (Movie.GetInstance().exp <= 1280)
+        {
+            Movie.GetInstance().exp += 2f;
+        }
+        else
+        {
+            Movie.GetInstance().exp = 4f;
+        }
         FarMonster.GetInstance().Destroy(gameObject);
         if (valueitem > 70)
         {

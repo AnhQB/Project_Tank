@@ -77,6 +77,7 @@ public class M2Controller : MonoBehaviour
 
     private void DestroyExplode()
     {
+        Movie.GetInstance().exp += 0.2f;
         FarMonster.GetInstance().Destroy(gameObject);
         if (valueitem > 70)
         {
