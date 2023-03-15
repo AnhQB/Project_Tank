@@ -9,7 +9,7 @@ using UnityEngine;
 public class BossCtrl : MonoBehaviour
 {
     public float hit;
-    public float HP = 100f;
+    public float HP = 200f;
     public float speedboss = 5f;
     public float speedshooting = 2f;
     public HealthBarBehaviour healthBar;
@@ -73,75 +73,5 @@ public class BossCtrl : MonoBehaviour
     }
 
 
-    //public float hit;
-    //[SerializeField] float hp = 100f;
-    //public float speed = 5f;
-    //public float speedShoot = 2f;
-    //[SerializeField] int damage = 10;
-    //public HealthBarBehaviour healthBar;
-    //Rigidbody2D rigidbody2D;
-    //void Start()
-    //{
-    //    hit = hp;
-    //    healthBar.SetHealth(hit, hp);
-    //}
-    //private void Awake()
-    //{
-    //    rigidbody2D= GetComponent<Rigidbody2D>();
-    //}
-    //private void Update()
-    //{
-    //    this.Move();
-
-    //}
-
-    //protected virtual void Move()
-    //{
-    //    GameObject targetPickup = GameObject.FindWithTag("TankBody");
-    //    transform.position = Vector3.MoveTowards(transform.position, targetPickup.transform.position, speed * Time.deltaTime);
-    //}
-
-    //private void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag.Contains("TankBody"))
-    //    {
-    //        Attack(); 
-    //    }
-    //    if (collision.gameObject.tag.Contains("Bullet"))
-    //    {
-    //        if (collision.gameObject.CompareTag("Bullet1"))
-    //        {
-    //            hit--;
-    //            healthBar.SetHealth(hit, hp);
-    //            if (hit <= 0)
-    //            {
-    //                DestroyExplode();
-    //            }
-    //        }
-    //        else if (collision.gameObject.CompareTag("Bullet2"))
-    //        {
-    //            hit -= 2f;
-    //            healthBar.SetHealth(hit, hp);
-    //            if (hit <= 0)
-    //            {
-    //                DestroyExplode();
-    //            }
-    //        }
-    //        else
-    //        {
-    //            DestroyExplode();
-    //        }
-    //    }
-    //}
-
-    //private static void Attack()
-    //{
-    //    Debug.Log("Attack");
-    //}
-    //private void DestroyExplode()
-    //{
-    //    FarMonster.GetInstance().Destroy(gameObject);
-    //    Destroy(gameObject);
-    //}
-
+   
 }

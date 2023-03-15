@@ -186,10 +186,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hit: 0
-  hp: 100
-  speed: 3
-  speedShoot: 2
-  damage: 10
+  HP: 200
+  speedboss: 5
+  speedshooting: 2
   healthBar: {fileID: 7564964442433774901}
 --- !u!114 &-3469518681099675365
 MonoBehaviour:
