@@ -1,5 +1,8 @@
+using Assets.Script.Enum;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,6 +22,8 @@ public class Movie : MonoBehaviour
    
 	public float exp = 0;
 	public float maxExp = 10;
+    public int level = 1;
+
 
 	public static Movie instance;
 
@@ -98,7 +103,52 @@ public class Movie : MonoBehaviour
             shoot.transform.Rotate(0, 0, aim_speed * Time.deltaTime);
 		}
 
-	}
+        SettingLevel();
+    }
+
+    private void SettingLevel()
+    {
+        if(exp < (int)LevelTank.Level2)
+        {
+            level = 1;
+        }else if(exp < (int)LevelTank.Level3)
+        {
+            level = 2;
+        }
+        else if (exp < (int)LevelTank.Level4)
+        {
+            level = 3;
+        }else if(exp < (int)LevelTank.Level5)
+        {
+            level = 4;
+        }
+        else if (exp < (int)LevelTank.Level6)
+        {
+            level = 5;
+        }
+        else if (exp < (int)LevelTank.Level7)
+        {
+            level = 6;
+        }
+        else if (exp < (int)LevelTank.Level8)
+        {
+            level = 7;
+        }
+        else if (exp < (int)LevelTank.Level9)
+        {
+            level = 8;
+        }
+        else if (exp < (int)LevelTank.Level10)
+        {
+            level = 9;
+        }
+        else 
+        {
+            level = 10;
+        }
+
+    }
+
     public void TangToc()
     {
         speedFlash = 3f;

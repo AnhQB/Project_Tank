@@ -8,6 +8,7 @@ public class ExpBarController : MonoBehaviour
 {
 	public Slider slider;
 	public Text text;
+	public Text level;
 
 	private static ExpBarController instance;
 	
@@ -49,5 +50,6 @@ public class ExpBarController : MonoBehaviour
 	{
 		slider.value = Movie.GetInstance().exp;
 		text.text = Math.Round(Movie.GetInstance().exp, 2).ToString();
+		level.text = "Level : " + Movie.GetInstance().level; 
     }
 }
