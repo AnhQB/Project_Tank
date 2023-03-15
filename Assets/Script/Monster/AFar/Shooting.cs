@@ -8,14 +8,11 @@ public class Shooting : MonoBehaviour
     public float fireInterval;
     public float detectionRange = 10000f;
     private float timer;
-
-    M1Controller m1Controller;
+   
     private void Start()
     {
 
-
-        m1Controller = GetComponent<M1Controller>();
-        fireInterval = m1Controller.speedShooting;
+        fireInterval = 7f;
 
     }
     void Update()
