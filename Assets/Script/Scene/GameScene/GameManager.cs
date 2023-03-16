@@ -87,8 +87,8 @@ public class GameManager : MonoBehaviour
 	public void InsBomm()
 	{
 		GameObject bo = Instantiate(bomm) as GameObject;
-		bo.transform.position = GameObject.Find("tankGreen").transform.position;
-		bo.transform.rotation = GameObject.Find("tankGreen").transform.rotation;
+		bo.transform.position = GameObject.FindGameObjectWithTag("TankBody").transform.position;
+		bo.transform.rotation = GameObject.FindGameObjectWithTag("TankBody").transform.rotation;
 	}
 	private void FixedUpdate()
     {
