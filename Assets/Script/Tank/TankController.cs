@@ -10,8 +10,11 @@ public class TankController : MonoBehaviour
     public HealthBarBehaviourTank healthBar;
     // Start is called before the first frame update
     public ExpBarController expBar;
+	public GameMangerScript gameManger;
+    private bool isDead;
 
-    void Start()
+
+	void Start()
     {
 		//healthBar.SetHealth(Movie.GetInstance().Max_Health, Movie.GetInstance().Max_Health);
 		expBar.SetExp(0, Movie.GetInstance().maxExp);
@@ -50,7 +53,8 @@ public class TankController : MonoBehaviour
 
         if(Movie.GetInstance().Current_Health <= 0)
         {
-            //detroy -> game over
+            isDead = true;
+            gameManger.gameOver();
         }
     }
 
