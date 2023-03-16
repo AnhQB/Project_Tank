@@ -60,7 +60,7 @@ public class TankController : MonoBehaviour
         switch (LayerMask.LayerToName(collisionObj.layer))
         {
             case "bulletMonster":
-/*
+
                 if (collisionObj.CompareTag(BulletMonsterTag.BulletM1.ToString()))
                 {
                     Movie.GetInstance().Current_Health -= DameMonster.GetDameMonsterByType((int)MonsterTag.M1, expLevel);
@@ -76,9 +76,9 @@ public class TankController : MonoBehaviour
                 }
                 else if (collisionObj.CompareTag(BulletMonsterTag.BulletBOSS.ToString()))
                 {
-                       Movie.GetInstance().Current_Health -= DameMonster.GetDameMonsterByType((int)MonsterTag.BOSS, expLevel);
-                       healthBar.SetHealth(Movie.GetInstance().Current_Health, Movie.GetInstance().Max_Health);
-                }*/
+                    Movie.GetInstance().Current_Health -= DameMonster.GetDameMonsterByType((int)MonsterTag.BOSS, expLevel);
+                    healthBar.SetHealth(Movie.GetInstance().Current_Health, Movie.GetInstance().Max_Health);
+                }
 
                 break;
            case "Monster":
@@ -114,8 +114,8 @@ public class TankController : MonoBehaviour
                 }
                 else if (collisionObj.CompareTag(MonsterTag.BOSS.ToString()))
                 {
-                    //Movie.GetInstance().Current_Health -= DameMonster.GetDameMonsterByType((int)MonsterTag.BOSS, expLevel);
-                    //healthBar.SetHealth(Movie.GetInstance().Current_Health, Movie.GetInstance().Max_Health);
+                    Movie.GetInstance().Current_Health -= DameMonster.GetDameMonsterByType((int)MonsterTag.BOSS, expLevel);
+                    healthBar.SetHealth(Movie.GetInstance().Current_Health, Movie.GetInstance().Max_Health);
                 }
                 break;
        }

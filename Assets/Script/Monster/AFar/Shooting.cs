@@ -71,5 +71,7 @@ public class Shooting : MonoBehaviour
 
         bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * 1500f);
 
+        bullet.tag = "Bullet" + gameObject.tag;
+        Debug.Log("tag" + bullet.tag);
     }
 }
