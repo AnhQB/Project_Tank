@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
+  forceMagnitude: 100
+  recoilMagnitude: 10
 --- !u!1 &3139286432491531416
 GameObject:
   m_ObjectHideFlags: 0
