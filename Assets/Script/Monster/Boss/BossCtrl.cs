@@ -30,39 +30,38 @@ public class BossCtrl : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Contains("Bullet"))
+        if (collision.gameObject.tag.Contains("Bullet1"))
         {
-            if (collision.gameObject.CompareTag("Bullet1"))
-            {
-                hit -= 0.75f;
-                healthBar.SetHealth(hit, HP);
-                if (hit <= 0)
-                {
-                    DestroyExplode();
-                }
-            }
-            else if (collision.gameObject.CompareTag("Bullet2"))
-            {
-                hit -= 1.5f;
-                healthBar.SetHealth(hit, HP);
-                if (hit <= 0)
-                {
-                    DestroyExplode();
-                }
-            }
-            else if (collision.gameObject.CompareTag("Bullet3"))
-            {
-                hit -= 3f;
-                healthBar.SetHealth(hit, HP);
-                if (hit <= 0)
-                {
-                    DestroyExplode();
-                }
-            }
-            else
+            float st = collision.gameObject.GetComponent<bullet>().Damage;
+            hit -= st;
+            healthBar.SetHealth(hit, HP);
+            if (hit <= 0)
             {
                 DestroyExplode();
             }
+
+        }
+        if (collision.gameObject.tag.Contains("Rocket"))
+        {
+            float st = collision.gameObject.GetComponent<Rocket>().Damage;
+            hit -= st;
+            healthBar.SetHealth(hit, HP);
+            if (hit <= 0)
+            {
+                DestroyExplode();
+            }
+
+        }
+        if (collision.gameObject.tag.Contains("bomm"))
+        {
+            //float st = collision.gameObject.GetComponent<Bomm>().Damage;
+            //hit -= st;
+            //healthBar.SetHealth(hit, HP);
+            //if (hit <= 0)
+            //{
+            DestroyExplode();
+            //}
+
         }
     }
 

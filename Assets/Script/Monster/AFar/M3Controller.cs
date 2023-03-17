@@ -59,13 +59,13 @@ public class M3Controller : MonoBehaviour
 		}
 		if (collision.gameObject.tag.Contains("bomm"))
 		{
-			float st = collision.gameObject.GetComponent<Bomm>().Damage;
-			hit -= st;
-			healthBar.SetHealth(hit, HP);
-			if (hit <= 0)
-			{
+			//float st = collision.gameObject.GetComponent<Bomm>().Damage;
+			//hit -= st;
+			//healthBar.SetHealth(hit, HP);
+			//if (hit <= 0)
+			//{
 				DestroyExplode();
-			}
+			//}
 
 		}
 
