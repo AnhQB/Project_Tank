@@ -90,7 +90,7 @@ public class M6Controller : MonoBehaviour
             Movie.GetInstance().exp = 4f;
         }
         FarMonster.GetInstance().Destroy(gameObject);
-        if (valueitem > 70)
+        if (valueitem > 80)
         {
             GameObject iteInsm = Instantiate(item) as GameObject;
             iteInsm.transform.position = gameObject.transform.position;
