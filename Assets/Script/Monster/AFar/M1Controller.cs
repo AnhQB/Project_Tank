@@ -47,7 +47,7 @@ public class M1Controller : MonoBehaviour
     {
         Movie.GetInstance().exp += 0.1f;
         FarMonster.GetInstance().Destroy(gameObject);
-        if (valueitem > 70)
+        if (valueitem > 90)
         {
             GameObject iteInsm = Instantiate(item) as GameObject;
             iteInsm.transform.position = gameObject.transform.position;
