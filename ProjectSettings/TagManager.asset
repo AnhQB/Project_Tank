@@ -20,6 +20,11 @@ TagManager:
   - M5
   - M6
   - BOSS
+  - BulletBoss
+  - BulletM1
+  - BulletM2
+  - BulletM3
+  - BulletBOSS
   layers:
   - Default
   - TransparentFX
@@ -33,7 +38,7 @@ TagManager:
   - bulletMonster
   - Monster
   - rockettank
-  - 
+  - BomTank
   - 
   - 
   - 
