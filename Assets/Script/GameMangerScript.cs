@@ -28,6 +28,7 @@ public class GameMangerScript : MonoBehaviour
 
     public void restart()
     {
-		SceneManager.LoadScene("move");
+        Time.timeScale = 1;
+        SceneManager.LoadScene("move");
 	}
 }
