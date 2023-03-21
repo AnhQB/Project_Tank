@@ -22,6 +22,7 @@ public class GameMangerScript : MonoBehaviour
     }
     public void gameOver()
     {
+        Time.timeScale = 0;
         gameOverUI.SetActive(true);
     }
 

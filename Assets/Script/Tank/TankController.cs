@@ -10,15 +10,18 @@ public class TankController : MonoBehaviour
     public HealthBarBehaviourTank healthBar;
     // Start is called before the first frame update
     public ExpBarController expBar;
+    public ManaBarController mana;
 	public GameMangerScript gameManger;
     private bool isDead;
 
 
 	void Start()
     {
+        
 		//healthBar.SetHealth(Movie.GetInstance().Max_Health, Movie.GetInstance().Max_Health);
 		expBar.SetExp(0, Movie.GetInstance().maxExp);
-	}
+        mana.SetMana(Movie.GetInstance().maxMana, Movie.GetInstance().maxMana);
+    }
 
     // Update is called once per frame
     void Update()

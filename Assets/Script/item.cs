@@ -61,10 +61,16 @@ public class item : MonoBehaviour
             }
             else if (setitem >45 && setitem<90)
             {
-                mana.mn.curentMana += 5;
+                /*mana.mn.curentMana += 5;
                 if(mana.mn.curentMana >mana.mn.myMana)
                 {
                     mana.mn.curentMana = mana.mn.myMana;
+                }*/
+                Movie.GetInstance().mana += 5;
+                float currentMana = Movie.GetInstance().mana;
+                if (currentMana > Movie.GetInstance().maxMana)
+                {
+                    Movie.GetInstance().mana = Movie.GetInstance().maxMana;
                 }
                 Destroy(gameObject);
 

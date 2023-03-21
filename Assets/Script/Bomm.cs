@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bomm : MonoBehaviour
 {
-	private float timeDestroy = 2f;
+	private float timeDestroy = 5f;
 	private float timer = 0f;
 	public float Damage = 1f;
 

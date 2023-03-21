@@ -23,6 +23,8 @@ public class Movie : MonoBehaviour
 	public float exp = 0;
 	public float maxExp = 10;
     public int level = 1;
+    public float mana = 0;
+    public float maxMana = 10;
 
 
 	public static Movie instance;
@@ -49,7 +51,7 @@ public class Movie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxExp = 10;
+        mana = maxExp = 10;
         speedFlash = 1f;
         r_body =  GetComponent<Rigidbody2D>();
         transform.rotation = shoot.rotation;
@@ -149,12 +151,10 @@ public class Movie : MonoBehaviour
 
     }
 
-    public void TangToc()
+    /*public void TangToc()
     {
         speedFlash = 3f;
-
-
-    }    
+    } */   
 	private void FixedUpdate()
 	{
         if(speedFlash>1)

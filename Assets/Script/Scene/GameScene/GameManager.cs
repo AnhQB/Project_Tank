@@ -4,6 +4,9 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Assets.Script.Tank;
+using UnityEngine.UI;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +19,13 @@ public class GameManager : MonoBehaviour
     public GameObject bomm;
     float timeP, timeS;
     public TextMeshProUGUI TextTime;
+    public float cooldownRocket;
+    public float cooldownBomm;
+    public float cooldownSpeed;
+    public TextMeshProUGUI textBtnRocket;
+    public TextMeshProUGUI textBtnBom;
+    public TextMeshProUGUI textBtnSpeed;
+
     void Start()
     {
         timeP = 0;
@@ -26,7 +36,7 @@ public class GameManager : MonoBehaviour
         y = ContinueBtn.transform.position.y;
         z = ExitBtn.transform.position.y;
         CheckClickGPlay = true;
-        
+
     }
     public void GamePlay()
     {
@@ -70,7 +80,36 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(cooldownBomm > 0)
+        {
+            cooldownBomm -= Time.deltaTime;
+            textBtnBom.text = "" + Math.Round(cooldownBomm, 1);
+        }
+        else
+        {
+            textBtnBom.gameObject.SetActive(false);
+        }
+
+        if(cooldownRocket > 0)
+        {
+            cooldownRocket -= Time.deltaTime;
+            textBtnRocket.text = "" + Math.Round(cooldownRocket, 1); 
+        }
+        else
+        {
+            textBtnRocket.gameObject.SetActive(false);
+        }
+
+        if (cooldownSpeed > 0)
+        {
+            cooldownSpeed -= Time.deltaTime;
+            textBtnSpeed.text = "" + Math.Round(cooldownSpeed, 1);
+        }
+        else
+        {
+            textBtnSpeed.gameObject.SetActive(false);
+        }
+
     }
     public void InsBullet()
     {
@@ -80,16 +119,100 @@ public class GameManager : MonoBehaviour
     }
     public void InsRocket()
     {
-		GameObject rc = Instantiate(rocket) as GameObject;
-		rc.transform.position = GameObject.Find("tankGreen").transform.position;
-		rc.transform.rotation = GameObject.Find("tankGreen").transform.rotation;
-	}
+		if(cooldownRocket <= 0)
+        {
+            if (ItemTank.GetInstance().rocketLevel == 1)
+            {
+                if (Movie.GetInstance().mana >= 1)
+                {
+                    ShootRocket();
+                    Movie.GetInstance().mana -= 1;
+                    cooldownRocket = 3;
+                }
+            }
+            else if (ItemTank.GetInstance().rocketLevel == 2)
+            {
+                if (Movie.GetInstance().mana >= 3)
+                {
+                    ShootRocket();
+                    Movie.GetInstance().mana -= 3;
+                    cooldownRocket = 4;
+                }
+            }
+            else
+            {
+                if (Movie.GetInstance().mana >= 5)
+                {
+                    ShootRocket();
+                    Movie.GetInstance().mana -= 5;
+                    cooldownRocket = 5;
+                }
+            }
+            textBtnRocket.gameObject.SetActive(true);
+        }
+    }
+
+    private void ShootRocket()
+    {
+        GameObject rc = Instantiate(rocket) as GameObject;
+        rc.transform.position = GameObject.Find("tankGreen").transform.position;
+        rc.transform.rotation = GameObject.Find("tankGreen").transform.rotation;
+    }
+
 	public void InsBomm()
 	{
-		GameObject bo = Instantiate(bomm) as GameObject;
-		bo.transform.position = GameObject.FindGameObjectWithTag("TankBody").transform.position;
-		bo.transform.rotation = GameObject.FindGameObjectWithTag("TankBody").transform.rotation;
-	}
+		if(cooldownBomm <= 0)
+        {
+
+            if (ItemTank.GetInstance().boomLevel == 1)
+            {
+                if (Movie.GetInstance().mana >= 1)
+                {
+                    SetBom();
+                    Movie.GetInstance().mana -= 1;
+                    cooldownBomm = 3;
+                }
+
+            }
+            else if (ItemTank.GetInstance().boomLevel == 2)
+            {
+                if (Movie.GetInstance().mana >= 3)
+                {
+                    SetBom();
+                    Movie.GetInstance().mana -= 3;
+                    cooldownBomm = 4;
+                }
+            }
+            else
+            {
+                if (Movie.GetInstance().mana >= 5)
+                {
+                    SetBom();
+                    Movie.GetInstance().mana -= 5;
+                    cooldownBomm = 5;
+                }
+            }
+            textBtnBom.gameObject.SetActive(true);
+        }
+    }
+
+    private void SetBom()
+    {
+        GameObject bo = Instantiate(bomm) as GameObject;
+        bo.transform.position = GameObject.FindGameObjectWithTag("TankBody").transform.position;
+        bo.transform.rotation = GameObject.FindGameObjectWithTag("TankBody").transform.rotation;
+    }
+
+    public void InsSpeed()
+    {
+        if(cooldownSpeed <= 0)
+        {
+            Movie.GetInstance().speedFlash = 3f;
+            cooldownSpeed = 6;
+            textBtnSpeed.gameObject.SetActive(true);
+        }
+    }
+
 	private void FixedUpdate()
     {
         timeS += Time.deltaTime;

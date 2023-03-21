@@ -25,6 +25,8 @@ TagManager:
   - BulletM2
   - BulletM3
   - BulletBOSS
+  - btn_bom
+  - btn_rocket
   layers:
   - Default
   - TransparentFX
