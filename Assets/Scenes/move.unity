@@ -4647,6 +4647,7 @@ MonoBehaviour:
   TextTime: {fileID: 1381336610}
   cooldownRocket: 0
   cooldownBomm: 0
+  cooldownSpeed: 0
   textBtnRocket: {fileID: 1713588218}
   textBtnBom: {fileID: 145776676}
   textBtnSpeed: {fileID: 1657044247}

@@ -50,13 +50,13 @@ public class M2Controller : MonoBehaviour
         }
 		if (collision.gameObject.tag.Contains("Rocket"))
 		{
-			float st = collision.gameObject.GetComponent<Rocket>().Damage;
+			/*float st = collision.gameObject.GetComponent<Rocket>().Damage;
 			hit -= st;
 			healthBar.SetHealth(hit, HP);
 			if (hit <= 0)
-			{
+			{*/
 				DestroyExplode();
-			}
+			//}
 
 		}
 		if (collision.gameObject.tag.Contains("bomm"))

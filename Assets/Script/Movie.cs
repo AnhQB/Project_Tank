@@ -23,6 +23,7 @@ public class Movie : MonoBehaviour
 	public float exp = 0;
 	public float maxExp = 10;
     public int level = 1;
+    public int prevlevel = 1;
     public float mana = 0;
     public float maxMana = 10;
 
@@ -149,13 +150,63 @@ public class Movie : MonoBehaviour
             level = 10;
         }
 
+        if(prevlevel < level)
+        {
+            SetHealthByLevel();
+            SetManaByLevel();
+            SetBaseSpeed();
+            prevlevel = level;
+        }
+
+    }
+
+    private void SetBaseSpeed()
+    {
+        move_speed++;
+    }
+
+    private void SetManaByLevel()
+    {
+        if(level <= 4)
+        {
+            mana += 5;
+            maxMana = 12f;
+        }else if (level <= 7)
+        {
+            mana += 6;
+            maxMana = 15f;
+        }
+        else if(level <= 9)
+        {
+            mana += 7;
+            maxMana = 18f;
+        }
+        else
+        {
+            mana = maxMana;
+            maxMana = 20f;
+        }
+    }
+
+    private void SetHealthByLevel()
+    {
+        if (level <= 5)
+        {
+            Current_Health += 5f;
+            Max_Health += 5;
+        }
+        else
+        {
+            Current_Health += 10f;
+            Max_Health += 10;
+        }
     }
 
     /*public void TangToc()
     {
         speedFlash = 3f;
-    } */   
-	private void FixedUpdate()
+    } */
+    private void FixedUpdate()
 	{
         if(speedFlash>1)
         {

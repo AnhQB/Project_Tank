@@ -46,24 +46,16 @@ public class M4Controller : MonoBehaviour
         }
 		if (collision.gameObject.tag.Contains("Rocket"))
 		{
-			float st = collision.gameObject.GetComponent<bullet>().Damage;
-			hit -= st;
-			healthBar.SetHealth(hit, HP);
-			if (hit <= 0)
-			{
-				DestroyExplode();
-			}
+			
+			DestroyExplode();
+			
 
 		}
 		if (collision.gameObject.tag.Contains("bomm"))
 		{
-			float st = collision.gameObject.GetComponent<bullet>().Damage;
-			hit -= st;
-			healthBar.SetHealth(hit, HP);
-			if (hit <= 0)
-			{
-				DestroyExplode();
-			}
+			
+			DestroyExplode();
+		
 
 		}
 
