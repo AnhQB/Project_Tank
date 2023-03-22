@@ -160,6 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdea39b092272a42b6f5f7821bf73ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5529657776309676617, guid: 8d2752e7a6225d043b57f3c13f2801a2, type: 3}
+  bulletPrefab: {fileID: 152073144720494477, guid: 10b0c960ca4978d4da4d83daaebf9c0f, type: 3}
   fireInterval: 0
   detectionRange: 10000
