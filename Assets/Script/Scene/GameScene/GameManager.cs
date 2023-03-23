@@ -80,6 +80,8 @@ public class GameManager : MonoBehaviour
     }
     public void ExitGame()
     {
+        DOTween.KillAll();
+        Time.timeScale = 1;
         SceneManager.LoadScene("HomeScene");
     }
     // Update is called once per frame
