@@ -227,10 +227,14 @@ public class GameManager : MonoBehaviour
     {
         if(cooldownSpeed <= 0)
         {
-            Movie.GetInstance().speedFlash = 3f;
-            cooldownSpeed = 6;
-            Movie.GetInstance().mana -= 5;
-            textBtnSpeed.gameObject.SetActive(true);
+            if(Movie.GetInstance().mana >= 5)
+            {
+                Movie.GetInstance().speedFlash = 3f;
+                cooldownSpeed = 6;
+                Movie.GetInstance().mana -= 5;
+                textBtnSpeed.gameObject.SetActive(true);
+            }
+            
         }
     }
 
