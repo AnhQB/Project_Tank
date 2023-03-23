@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI textBtnRocket;
     public TextMeshProUGUI textBtnBom;
     public TextMeshProUGUI textBtnSpeed;
+    public TextMeshProUGUI textLvRocket;
+    public TextMeshProUGUI textLvBom;
+
+    private float currentLvRocket = 1;
+    private float currentLvBom = 1;
 
     void Start()
     {
@@ -108,6 +113,19 @@ public class GameManager : MonoBehaviour
         else
         {
             textBtnSpeed.gameObject.SetActive(false);
+        }
+
+        if(currentLvBom != ItemTank.GetInstance().boomLevel)
+        {
+            currentLvBom = ItemTank.GetInstance().boomLevel;
+            textLvBom.text = "" + currentLvBom;
+        }
+
+        if (currentLvRocket != ItemTank.GetInstance().rocketLevel)
+        {
+            currentLvRocket = ItemTank.GetInstance().rocketLevel;
+            textLvRocket.text = "" + currentLvRocket;
+
         }
 
     }
@@ -209,6 +227,7 @@ public class GameManager : MonoBehaviour
         {
             Movie.GetInstance().speedFlash = 3f;
             cooldownSpeed = 6;
+            Movie.GetInstance().mana -= 5;
             textBtnSpeed.gameObject.SetActive(true);
         }
     }

@@ -1,4 +1,5 @@
 using Assets.Script.Enum;
+using Assets.Script.Tank;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -155,9 +156,27 @@ public class Movie : MonoBehaviour
             SetHealthByLevel();
             SetManaByLevel();
             SetBaseSpeed();
+            SetItemByLevel();
             prevlevel = level;
         }
 
+    }
+
+    private void SetItemByLevel()
+    {
+        if (level <= 3) {
+            ItemTank.GetInstance().rocketLevel = ItemTank.GetInstance().boomLevel = 1;
+            ItemTank.GetInstance().dameRocket = ItemTank.GetInstance().dameBoom = 20f;
+        } else if (level <= 6)
+        {
+            ItemTank.GetInstance().rocketLevel = ItemTank.GetInstance().boomLevel = 2;
+            ItemTank.GetInstance().dameRocket = ItemTank.GetInstance().dameBoom = 40f;
+        }
+        else
+        {
+            ItemTank.GetInstance().rocketLevel = ItemTank.GetInstance().boomLevel = 3;
+            ItemTank.GetInstance().dameRocket = ItemTank.GetInstance().dameBoom = 80f;
+        }
     }
 
     private void SetBaseSpeed()

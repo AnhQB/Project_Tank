@@ -1,5 +1,6 @@
 using Assets.Script.Monster.AFar;
 using Assets.Script.Monster.Close;
+using Assets.Script.Tank;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
@@ -43,8 +44,8 @@ public class BossCtrl : MonoBehaviour
         }
         if (collision.gameObject.tag.Contains("Rocket"))
         {
-            float st = collision.gameObject.GetComponent<Rocket>().Damage;
-            hit -= st;
+            //float st = collision.gameObject.GetComponent<Rocket>().Damage;
+            hit -= ItemTank.GetInstance().dameRocket;
             healthBar.SetHealth(hit, HP);
             if (hit <= 0)
             {
@@ -55,12 +56,12 @@ public class BossCtrl : MonoBehaviour
         if (collision.gameObject.tag.Contains("bomm"))
         {
             //float st = collision.gameObject.GetComponent<Bomm>().Damage;
-            //hit -= st;
-            //healthBar.SetHealth(hit, HP);
-            //if (hit <= 0)
-            //{
-            DestroyExplode();
-            //}
+            hit -= ItemTank.GetInstance().dameBoom;
+            healthBar.SetHealth(hit, HP);
+            if (hit <= 0)
+            {
+                DestroyExplode();
+            }
 
         }
     }
