@@ -161,17 +161,17 @@ public class SpawnNormalMonsterController : MonoBehaviour
                 positionSpawnX = positionCave1.transform.position.x;
                 positionSpawnY = UnityEngine.Random.Range(positionCave1.transform.position.y, 0f);
             }
-            if (UnityEngine.Random.value <= 0.5f)
+            else if (UnityEngine.Random.value <= 0.5f)
             {
                 positionSpawnX = positionCave2.transform.position.x;
                 positionSpawnY = UnityEngine.Random.Range(positionCave2.transform.position.y, 0f);
             }
-            if (UnityEngine.Random.value <= 0.7f)
+            else if(UnityEngine.Random.value <= 0.7f)
             {
                 positionSpawnX = positionCave3.transform.position.x;
                 positionSpawnY = UnityEngine.Random.Range(positionCave3.transform.position.y, 0f);
-            }
-            if (UnityEngine.Random.value <= 1f)
+                }
+            else //if(UnityEngine.Random.value <= 1f)
             {
                 positionSpawnX = positionCave4.transform.position.x;
                 positionSpawnY = UnityEngine.Random.Range(positionCave4.transform.position.y, 0f);
@@ -184,6 +184,8 @@ public class SpawnNormalMonsterController : MonoBehaviour
             float randomY = Random.Range(-mapTopY, mapTopY);*/
             GameObject newPrefab = Instantiate(prefabToSpawn, 
                 new Vector3(positionSpawnX - startX + i * gap, positionSpawnY, 0f), Quaternion.identity);
+            //var a = positionSpawnX - startX + i * gap;
+            //Debug.Log("x: " + a + " y: " + positionSpawnY);
         }
     }
 }
